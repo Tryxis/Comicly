@@ -1,6 +1,7 @@
 using ComiclyWebApp.Data;
 using ComiclyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ComiclyWebApp
 {
@@ -18,7 +19,7 @@ namespace ComiclyWebApp
         } 
         public IActionResult Detail(int id)
         {
-            Club club = _context.Clubs.FirstOrDefault(c => c.Id == id);
+            Club club = _context.Clubs.Include(a => a.Address).FirstOrDefault(c => c.Id == id);
             {
                 return View(club);
             }
