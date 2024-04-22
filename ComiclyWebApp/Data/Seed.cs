@@ -24,7 +24,7 @@ namespace RunGroopWebApp.Data
                             Title = "Weekly",
                             Image = "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                             Description = "This is the description of the first Club",
-                            ClubCategory = ClubCategory.weekly,
+                            ClubCategory = ClubCategory.Weekly,
                             Address = new Address()
                             {
                                 Street = "123 Whew Street",
@@ -37,7 +37,7 @@ namespace RunGroopWebApp.Data
                             Title = "Monthly",
                             Image = "https://images.unsplash.com/photo-1588497859490-85d1c17db96d?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                             Description = "This is the description of the second Club",
-                            ClubCategory = ClubCategory.monthly,
+                            ClubCategory = ClubCategory.Monthly,
                             Address = new Address()
                             {
                                 Street = "456 Test Ave",
