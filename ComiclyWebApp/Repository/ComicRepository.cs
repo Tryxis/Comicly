@@ -27,6 +27,7 @@ namespace ComiclyWebApp.Repository
         public async Task<IEnumerable<Comic>> GetAll()
         {
             return await _context.Comics.ToListAsync();
+        
         }
 
         public async Task<Comic> GetComicByIdAsync(int id)

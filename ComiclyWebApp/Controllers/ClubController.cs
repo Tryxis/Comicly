@@ -3,6 +3,7 @@ using ComiclyWebApp.Interfaces;
 using ComiclyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ComiclyWebApp
 {
@@ -29,6 +30,17 @@ namespace ComiclyWebApp
         public IActionResult Create()
         {
             return View();
+        }
+        
+        [HttpPost]
+        public async Task <IActionResult> Create(Club club)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(club);
+            }
+            _clubRepository.Add(club);
+            return RedirectToAction("Index");
         }
     }
     
