@@ -1,4 +1,6 @@
 using ComiclyWebApp.Data;
+using ComiclyWebApp.Interfaces;
+using ComiclyWebApp.Repository;
 using Microsoft.EntityFrameworkCore;
 using RunGroopWebApp.Data;
 
@@ -6,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IClubRepository, ClubRepository>();
+builder.Services.AddScoped<IComicRepository, ComicRepository>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefultConnection' not found.");
 builder.Services.AddDbContext<ComiclyDbConext>(option =>

@@ -31,7 +31,7 @@ namespace ComiclyWebApp.Repository
 
         public async Task<Comic> GetComicByIdAsync(int id)
         {
-            return await _context.Comics.FirstOrDefaultAsync(i => i.Id == id);
+            return await _context.Comics.Include(i => i.Address).FirstOrDefaultAsync(i => i.Id == id);
         }
 
         public async Task<IEnumerable<Comic>> GetComicsByCity(string city)

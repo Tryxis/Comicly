@@ -1,4 +1,5 @@
 using ComiclyWebApp.Data;
+using ComiclyWebApp.Interfaces;
 using ComiclyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,21 +8,21 @@ namespace ComiclyWebApp
 {
     public class ComicController : Controller
     {
-        private readonly ComiclyDbConext _context;
+        private readonly IComicRepository _comicRepository;
 
-        public ComicController(ComiclyDbConext context)
+        public ComicController(IComicRepository comicRepository)
         {
-            _context = context;
+            _comicRepository = comicRepository;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Comic> comics = _context.Comics.ToList();
+            IEnumerable<Comic> comics =  await _comicRepository.GetAll();
             return View(comics);
         } 
 
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            Comic comic = _context.Comics.Include(a => a.Address).FirstOrDefault(c => c.Id == id);
+            Comic comic = await _comicRepository.GetComicByIdAsync(id);
             {
                 return View(comic);
             }
