@@ -41,12 +41,14 @@ namespace ComiclyWebApp.Repository
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;        
         }
 
         public bool Update(Comic comic)
         {
-            throw new NotImplementedException();
+            _context.Update(comic);
+            return Save();
         }
     }
 }
