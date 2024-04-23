@@ -58,7 +58,7 @@ namespace RunGroopWebApp.Data
                             Title = "Single",
                             Image = "hhttps://fabricmouse.co.uk/cdn/shop/products/image_57ee7ef1-a9b8-4c8d-a1c2-d65f81e24aa7_1296x.jpg?v=1602081771",
                             Description = "This is the description of the first Comic",
-                            ComicCategory = ComicCategory.single,
+                            ComicCategory = ComicCategory.Single,
                             Address = new Address()
                             {
                                 Street = "123 Boop St",
@@ -71,7 +71,7 @@ namespace RunGroopWebApp.Data
                             Title = "Collected",
                             Image = "https://nypost.com/wp-content/uploads/sites/2/2020/04/sothebys-dc-comics-48.jpg?quality=75&strip=all",
                             Description = "This is the description of the first Comic",
-                            ComicCategory = ComicCategory.collected,
+                            ComicCategory = ComicCategory.Collected,
                             AddressId = 5,
                             Address = new Address()
                             {
