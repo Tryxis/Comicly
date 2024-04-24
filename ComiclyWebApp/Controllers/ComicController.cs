@@ -28,6 +28,22 @@ namespace ComiclyWebApp
             }
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public async Task <IActionResult> Create(Comic comic)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(comic);
+            }
+            _comicRepository.Add(comic);
+            return RedirectToAction("Index");
+        }
+
     }
     
 }
