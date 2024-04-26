@@ -1,6 +1,8 @@
 using ComiclyWebApp.Data;
+using ComiclyWebApp.Helpers;
 using ComiclyWebApp.Interfaces;
 using ComiclyWebApp.Repository;
+using ComiclyWebApp.Services;
 using Microsoft.EntityFrameworkCore;
 using RunGroopWebApp.Data;
 
@@ -10,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IClubRepository, ClubRepository>();
 builder.Services.AddScoped<IComicRepository, ComicRepository>();
+builder.Services.AddScoped<IPhotoService, PhotoService>();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefultConnection' not found.");
 builder.Services.AddDbContext<ComiclyDbConext>(option =>
